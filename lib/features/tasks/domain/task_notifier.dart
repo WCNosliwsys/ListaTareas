@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../features/tasks/data/task_model.dart';
+import '../data/task_model.dart';
 
 class TaskNotifier extends StateNotifier<List<Task>> {
   TaskNotifier() : super([]);
@@ -20,4 +20,3 @@ class TaskNotifier extends StateNotifier<List<Task>> {
     }).toList();
   }
 }
-
