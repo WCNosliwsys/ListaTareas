@@ -19,4 +19,8 @@ class TaskNotifier extends StateNotifier<List<Task>> {
       return task;
     }).toList();
   }
+
+  void deleteTask(String id) {
+    state = state.where((task) => task.id != id).toList();
+  }
 }
