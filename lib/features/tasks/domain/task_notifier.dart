@@ -1,14 +1,28 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../data/task_model.dart';
+import '../data/task_repository.dart';
 
 class TaskNotifier extends StateNotifier<List<Task>> {
-  TaskNotifier() : super([]);
+  final TaskRepository _repository;
+
+  TaskNotifier(this._repository) : super([]) {
+    _loadTasks();
+  }
+
+  Future<void> _loadTasks() async {
+    state = await _repository.loadTasks();
+  }
+
+  Future<void> _saveTasks() async {
+    await _repository.saveTasks(state);
+  }
 
   void addTask(String title) {
     state = [
       ...state,
       Task(id: DateTime.now().toString(), title: title),
     ];
+    _saveTasks();
   }
 
   void toggleTask(String id) {
@@ -18,9 +32,11 @@ class TaskNotifier extends StateNotifier<List<Task>> {
       }
       return task;
     }).toList();
+    _saveTasks();
   }
 
   void deleteTask(String id) {
     state = state.where((task) => task.id != id).toList();
+    _saveTasks();
   }
 }
