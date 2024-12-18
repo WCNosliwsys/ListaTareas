@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../data/task_model.dart';
-import '../data/task_repository.dart';
+import 'task_repository.dart';
 
 class TaskNotifier extends StateNotifier<List<Task>> {
   final TaskRepository _repository;

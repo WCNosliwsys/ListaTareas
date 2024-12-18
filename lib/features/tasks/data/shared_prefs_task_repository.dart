@@ -1,16 +1,11 @@
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
 import 'task_model.dart';
+import '../domain/task_repository.dart';
 
-class TaskRepository {
-  static final TaskRepository _instance = TaskRepository._internal();
-
-  factory TaskRepository() => _instance;
-
-  TaskRepository._internal();
-
+class SharedPrefsTaskRepository implements TaskRepository {
   static const _tasksKey = 'tasks';
-
+  @override
   Future<List<Task>> loadTasks() async {
     final prefs = await SharedPreferences.getInstance();
     final tasksJson = prefs.getString(_tasksKey);
@@ -27,6 +22,7 @@ class TaskRepository {
     return [];
   }
 
+  @override
   Future<void> saveTasks(List<Task> tasks) async {
     final prefs = await SharedPreferences.getInstance();
     final tasksJson = jsonEncode(

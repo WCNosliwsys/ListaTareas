@@ -1,10 +1,10 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'task_notifier.dart';
 import 'task_filter_notifier.dart';
-import '../data/task_repository.dart';
+import '../data/shared_prefs_task_repository.dart';
 import '../data/task_model.dart';
 
-final taskRepositoryProvider = Provider((ref) => TaskRepository());
+final taskRepositoryProvider = Provider((ref) => SharedPrefsTaskRepository());
 
 final taskProvider = StateNotifierProvider<TaskNotifier, List<Task>>(
   (ref) => TaskNotifier(ref.read(taskRepositoryProvider)),

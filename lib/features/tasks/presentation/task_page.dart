@@ -18,30 +18,6 @@ class _TaskPageState extends ConsumerState<TaskPage> {
   final GlobalKey<AnimatedListState> _listKey = GlobalKey<AnimatedListState>();
   late final TaskAnimationService _animationService = TaskAnimationService(_listKey);
 
-/*   void _syncAnimatedList(List<Task> oldTasks, List<Task> newTasks) {
-    final oldIds = oldTasks.map((task) => task.id).toList();
-    final newIds = newTasks.map((task) => task.id).toList();
-
-    for (int i = oldIds.length - 1; i >= 0; i--) {
-      if (!newIds.contains(oldIds[i])) {
-        _listKey.currentState?.removeItem(
-          i,
-          (context, animation) => TaskItemWidget(
-            task: oldTasks[i],
-            animation: animation,
-          ),
-          duration: const Duration(milliseconds: 300),
-        );
-      }
-    }
-
-    for (int i = 0; i < newIds.length; i++) {
-      if (!oldIds.contains(newIds[i])) {
-        _listKey.currentState?.insertItem(i);
-      }
-    }
-  } */
-
   @override
   Widget build(BuildContext context) {
     final tasks = ref.watch(filteredTasksProvider);
