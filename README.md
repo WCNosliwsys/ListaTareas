@@ -1,16 +1,24 @@
-# lista_tareas
+# Lista de Tareas
 
-A new Flutter project.
+Una aplicación Flutter para gestionar tareas con funcionalidad de agregar, eliminar, marcar como completadas y filtrar.
 
-## Getting Started
+## Funcionalidades
+- Agregar nuevas tareas.
+- Marcar tareas como completadas o pendientes.
+- Eliminar tareas.
+- Filtrar tareas por estado: todas, pendientes y completadas.
+- Persistencia de datos utilizando SharedPreferences.
+- Animaciones al agregar y eliminar tareas.
 
-This project is a starting point for a Flutter application.
+## Requisitos
+- Flutter 3.x o superior.
+- SDK de Android o emulador configurado.
 
-A few resources to get you started if this is your first Flutter project:
+## Cómo ejecutar el proyecto
+1. Clona este repositorio:
+   ```bash
+   git clone https://github.com/tu-usuario/tu-repositorio.git
+    cd lista_tareas
+    flutter pub get
+    flutter run
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
