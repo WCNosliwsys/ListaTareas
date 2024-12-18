@@ -10,7 +10,8 @@ class TaskNotifier extends StateNotifier<List<Task>> {
   }
 
   Future<void> _loadTasks() async {
-    state = await _repository.loadTasks();
+    final loadedTasks = await _repository.loadTasks();
+    state = [...loadedTasks];
   }
 
   Future<void> _saveTasks() async {
@@ -18,10 +19,8 @@ class TaskNotifier extends StateNotifier<List<Task>> {
   }
 
   void addTask(String title) {
-    state = [
-      ...state,
-      Task(id: DateTime.now().toString(), title: title),
-    ];
+    final newTask = Task(id: DateTime.now().toString(), title: title);
+    state = [...state, newTask];
     _saveTasks();
   }
 

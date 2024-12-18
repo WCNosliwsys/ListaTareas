@@ -13,11 +13,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Lista de Tareas',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.indigo,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+        scaffoldBackgroundColor: Colors.grey[100],
+        textTheme: const TextTheme(
+          bodyLarge: TextStyle(fontSize: 18, color: Colors.black87),
+        ),
       ),
       home: const TaskPage(),
     );
   }
 }
-
